@@ -13,10 +13,10 @@ Router.put('/api/updatedish',authApi ,async (req,res)=>{
         const filter = {dishName:dishName};
         const update={availableQuantity:availableQuantity, pricePerItem:pricePerItem};
 
-        const findDish= await DishObject.findOneAndUpdate({filter,update});
+        const findDish= await DishObject.updateOne({dishName:dishName},{$set:{availableQuantity:availableQuantity, pricePerItem:pricePerItem}},{multi: true });
         if(findDish)
         {
-                console.log("dish is updated");
+                console.log(`dish is updated ${findDish}`);
                 res.status(200).json({message:`Dish is updated : ${dishName}`});
         }
         else

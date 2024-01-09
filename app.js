@@ -1,6 +1,6 @@
 const express=require("express");
 const app = new express();
- const {SET_SYNC}=require('./DBconnect/redis.js');
+ const {GET_SYNC}=require('./DBconnect/redis.js');
 require('./DBconnect/db.js')
 //const Redis = require('redis');
 
@@ -18,7 +18,7 @@ const port=3336;
 
 
 
-  SET_SYNC('hey','hello').then((x)=>{
+  GET_SYNC('hey').then((x)=>{
     console.log(x);
  });
 

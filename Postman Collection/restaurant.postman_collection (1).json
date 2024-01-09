@@ -7,44 +7,6 @@
 	},
 	"item": [
 		{
-			"name": "http://localhost:3336/api/purchase",
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "POST",
-				"header": [
-					{
-						"key": "authorization",
-						"value": "TARANG",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"dishes\":[{\"dishName\": \"manchow soup\",\n    \"quantity\":2}],\n    \"amountPaid\":282\n}\n",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:3336/api/purchase",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3336",
-					"path": [
-						"api",
-						"purchase"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "http://localhost:3336/api/getdetail",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -194,6 +156,44 @@
 					"path": [
 						"api",
 						"updatedish"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3336/api/dishadd",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "TARANG",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"dishName\": \"Tomato soup\",\n    \"availableQuantity\": 28,\n    \"pricePerItem\": 120,\n    \"dishType\": \"starter\",\n    \"servesPeople\": 1\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3336/api/dishadd",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3336",
+					"path": [
+						"api",
+						"dishadd"
 					]
 				}
 			},

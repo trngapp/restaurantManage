@@ -2,6 +2,7 @@ const express=require("express");
 const app = new express();
  const {GET_SYNC}=require('./DBconnect/redis.js');
 require('./DBconnect/db.js')
+require('./redisDemo.js')
 //const Redis = require('redis');
 
 app.use(express.json());

@@ -6,7 +6,7 @@ const { ConnectionStates } = require('mongoose');
 const authApi = require('../Middleware/authApi.js');
 
 
-
+////IGNORE ...................................................................................................................
 /*const checkValidPurchase= async (req,res)=>{
   const amountPaid=req.body.amountPaid;
   const dishes= req.body.dishes;
@@ -31,7 +31,7 @@ const authApi = require('../Middleware/authApi.js');
     }
 
 }*/
-
+//......................................................................................................................
 
 
 
@@ -55,16 +55,17 @@ Router.post('/api/purchase',authApi,async (req,res)=>{
         console.log(dishes);
           const name= element.dishName;
           const quantity= element.quantity;
-
+           //CHECKS IF DISHNAME OR THE QUANTITY IS AVAILABLE IN THE DATABASE : DISHOBJECT
         const dishfind= await DishObject.findOne({$and:[{dishName:name},{availableQuantity:{$gte:quantity}}]})
         if(dishfind)
         {
           sum = sum + (dishfind.pricePerItem * quantity);
 
-         //ret)urn ;
+
         }
         else
         {
+          ////NOT AVAILABLE
             valid="invalid";
 
         }
@@ -72,13 +73,15 @@ Router.post('/api/purchase',authApi,async (req,res)=>{
 console.log(sum);
         if(valid==="invalid")
         {
+          ///DISH NOT AVAILABLE
            return res.status(412).json({message:"Dish not available"});
         }
         else
         {
         if(sum<=amountPaid)
         {
-
+             ///PAID AMOUNT IS CORRECT
+            /// TO UPDATE THE DISH AND RETURING THE CHANGE AMOUNT TO USER
              const changeAmount= Math.abs(sum - amountPaid);
 
              Promise.all(dishes.map(async (dish)=>{
@@ -98,6 +101,7 @@ console.log(sum);
         }
         else
         {
+          ///THE PAID AMOUNT IS INCORRECT
           return res.status(412).json({message:"amount paid is incorrect"});
         }
       }

@@ -1,0 +1,203 @@
+{
+	"info": {
+		"_postman_id": "255901f5-7ac0-4633-9bb1-9e1e9975971d",
+		"name": "restaurant",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19113868"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3336/api/purchase",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "TARANG",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"dishes\":[{\"dishName\": \"manchow soup\",\n    \"quantity\":2}],\n    \"amountPaid\":282\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3336/api/purchase",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3336",
+					"path": [
+						"api",
+						"purchase"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3336/api/getdetail",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "TARANG",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"dishName\": \"manchow soup\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3336/api/getdetail",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3336",
+					"path": [
+						"api",
+						"getdetail"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3336/api/delete",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "TARANG",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"dishName\": \"Tomato soup\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3336/api/delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3336",
+					"path": [
+						"api",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3336/api/purchase",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "TARANG",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"dishes\":[{\"dishName\": \"manchowsoup\",\n    \"quantity\":2}],\n    \"amountPaid\":280\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3336/api/purchase",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3336",
+					"path": [
+						"api",
+						"purchase"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3336/api/updatedish",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "TARANG",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"dishName\": \"manchow soup\",\n    \"availableQuantity\":2,\n    \"pricePerItem\":180\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3336/api/updatedish",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3336",
+					"path": [
+						"api",
+						"updatedish"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

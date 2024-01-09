@@ -19,8 +19,7 @@ Learning :
 2. Redis
 3. Async Await ( asynchronus programming ) in more depth
 ----------------------------------------------------------
-Struggling with :
-asynchronus programming 
+ 
 
 
 Work in Progress!!! Cheers!! 

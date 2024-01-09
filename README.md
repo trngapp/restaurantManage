@@ -1,4 +1,6 @@
+
 Hello !! This is the server for restarunt management ,
+Branches : 1. Master , 2. Staging (contain redis implementation)
  I have used :
  1. Express.js (Node.js)
  2. MongoDB (Atlas) : Database

@@ -9,7 +9,7 @@ Update:
 All the required APIs are running fine .
 Things not completed yet:
 1. Redis
-2. Validating schema of comming body in request
+2. Validating schema of coming body in request
 3. Tests for each api
 
 Work in Progress!!! Cheers!! 

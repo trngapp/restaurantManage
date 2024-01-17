@@ -9,7 +9,7 @@ const auth = (req,res,next) => {
         } else {
             console.log(req.headers.authorization);
             console.log(AUTHKEY);
-            res.status(412).send("Auth key Invalid")
+            res.status(412).send("Auth  Invalid")
         }
     } catch {
         res.status(401).json(

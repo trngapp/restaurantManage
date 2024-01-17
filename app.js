@@ -1,8 +1,9 @@
 const express=require("express");
 const app = new express();
- const {GET_SYNC}=require('./DBconnect/redis.js');
+ //const {GET_SYNC}=require('./DBconnect/redis.js');
 require('./DBconnect/db.js')
-require('./redisDemo.js')
+//require('./DBconnect/redis.js')
+//require('./redisDemo.js')
 //const Redis = require('redis');
 
 app.use(express.json());
@@ -19,9 +20,7 @@ const port=3336;
 
 
 
-  GET_SYNC('hey').then((x)=>{
-    console.log(x);
- });
+
 
 
 
@@ -35,6 +34,14 @@ app.use(purchaseRouter);
 app.use(updateRouter);
 app.use(errorHandler);
 
-app.listen(port,()=>{
+const server=app.listen(port,()=>{
     console.log("listening on port");
+});
+
+const closeServer= (async ()=>{
+    await server.close();
+    console.log("server closed");
 })
+module.exports={
+    app,closeServer
+}

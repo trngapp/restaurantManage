@@ -3,9 +3,9 @@ const Router= new express.Router();
 
 const DishObject = require('../Model/dishObject.js');
 const authApi = require('../Middleware/authApi.js');
+const {addDishSchemaCheck}=require("../Middleware/schemaValid.js")
 
-
-Router.post('/api/dishadd',authApi,async (req,res)=>{
+Router.post('/api/dishadd',[authApi,addDishSchemaCheck],async (req,res)=>{
 try
 {
    // console.log(req.body);
@@ -43,7 +43,7 @@ else
 catch(error)
 {
 console.log(error);
-res.send(error);
+res.json({error:error});
 }
 })
 module.exports=Router;

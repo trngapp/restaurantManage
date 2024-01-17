@@ -2,8 +2,8 @@ const express= require('express');
 const Router= new express.Router();
 const DishObject=require('../Model/dishObject.js');
 const authApi = require('../Middleware/authApi.js');
-
-Router.put('/api/updatedish',authApi ,async (req,res)=>{
+const {updateDishSchemaCheck}=require("../Middleware/schemaValid.js");
+Router.put('/api/updatedish',[authApi,updateDishSchemaCheck] ,async (req,res)=>{
     try
     {
         const dishName=req.body.dishName;

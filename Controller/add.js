@@ -1,12 +1,7 @@
-const express=require('express');
-const Router= new express.Router();
-
 const DishObject = require('../Model/dishObject.js');
-const authApi = require('../Middleware/authApi.js');
-const {addDishSchemaCheck}=require("../Middleware/schemaValid.js")
-
-Router.post('/api/dishadd',[authApi,addDishSchemaCheck],async (req,res)=>{
-try
+//const authApi = require('../Middleware/authApi.js');
+const Dish = async (req,res)=>{
+    try
 {
    // console.log(req.body);
 
@@ -36,6 +31,7 @@ else
     const newDish = await Dish.save();
  res.status(200).json({message:`New dishItem is added to restaurant : ${dishName}`});
  console.log("new dish is added");
+
 }
 
 
@@ -45,5 +41,5 @@ catch(error)
 console.log(error);
 res.json({error:error});
 }
-})
-module.exports=Router;
+}
+module.exports = {Dish};

@@ -1,12 +1,10 @@
-const express = require("express");
-const Router = new express.Router();
 const DishObject = require('../Model/dishObject.js');
-const authApi = require('../Middleware/authApi.js');
 
-Router.get('/api/getdish/:dishName',authApi,async (req,res)=>{
+const getDish = async (req,res)=>{
     try
     {
         const dishName= req.params.dishName;
+        console.log(dishName);
         const detail = await DishObject.findOne({dishName: dishName});
         if(detail){
             console.log(detail);
@@ -21,8 +19,9 @@ res.status(412).json({message:"Dish Not found "});
         console.log(error);
         res.status(412).json({error:error});
     }
-})
-Router.get('/api/getall',authApi,async(req,res)=>{
+}
+
+const getAll = async(req,res)=>{
     try
     {
        // const dishName= req.body.dishName;
@@ -40,5 +39,5 @@ res.status(412).json({message:"Dish Not found "});
         console.log(error);
         res.status(412).json({error:error});
     }
-})
-module.exports=Router;
+}
+module.exports = {getDish,getAll}

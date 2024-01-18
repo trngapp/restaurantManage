@@ -1,9 +1,5 @@
-const express= require('express');
-const Router= new express.Router();
 const DishObject=require('../Model/dishObject.js');
-const authApi = require('../Middleware/authApi.js');
-const {updateDishSchemaCheck}=require("../Middleware/schemaValid.js");
-Router.put('/api/updatedish',[authApi,updateDishSchemaCheck] ,async (req,res)=>{
+const updateDish = async (req,res)=>{
     try
     {
         const dishName=req.body.dishName;
@@ -13,7 +9,7 @@ Router.put('/api/updatedish',[authApi,updateDishSchemaCheck] ,async (req,res)=>{
         const filter = {dishName:dishName};
         const update={availableQuantity:availableQuantity, pricePerItem:pricePerItem};
 
-        const findDish= await DishObject.updateOne({dishName:dishName},{$set:{availableQuantity:availableQuantity, pricePerItem:pricePerItem}},{multi: true });
+        const findDish= await DishObject.findOneAndUpdate({dishName:dishName},{$set:{availableQuantity:availableQuantity, pricePerItem:pricePerItem}},{multi: true });
         if(findDish)
         {
                 console.log(`dish is updated ${findDish}`);
@@ -31,6 +27,5 @@ Router.put('/api/updatedish',[authApi,updateDishSchemaCheck] ,async (req,res)=>{
                  res.status(400).send(err);
     }
 
-})
-module.exports =Router;
-
+}
+module.exports= {updateDish};

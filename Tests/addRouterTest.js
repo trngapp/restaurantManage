@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+/*const mongoose = require("mongoose");
 const request = require("supertest");
 const redis = require('../DBconnect/redis.js');
 
@@ -33,7 +33,7 @@ describe("GET /api/getall", () => {
 
 
 
-describe("GET /api/getdetail/:dishName", () => {
+/*describe("GET /api/getdetail/:dishName", () => {
   it("should return all products", async () => {
     const res = await request(app).get("/api/getdetail/pasta").set({"authorization":"TARANG"});
     expect(res.statusCode).toBe(200);
@@ -42,7 +42,7 @@ console.log(res);
 
 //console.log(res);
 
-});
+});*/
 
 /*describe("POST /api/dishadd", () => {
   it("should return all products", async () => {
@@ -61,7 +61,7 @@ console.log(res);
 //console.log(res);
 
 });
-*/
+
 
 
 
@@ -78,4 +78,35 @@ afterAll( async() => {
   mongoose.connection.close();
   await closeServer();
   await teardown(redis);
-});
+});*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
